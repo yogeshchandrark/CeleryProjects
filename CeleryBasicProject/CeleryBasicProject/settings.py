@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'CeleryApp',
+    'publish',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +77,8 @@ WSGI_APPLICATION = 'CeleryBasicProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'djongo',
+        'NAME': 'CeleryDB',
     }
 }
 
@@ -118,3 +120,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+AUTH_USER_MODEL = 'CeleryApp.User'
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'r.yogeshchandra@gmail.com'
+EMAIL_HOST_PASSWORD = 'Passw0rd@15'
+EMAIL_PORT = 587

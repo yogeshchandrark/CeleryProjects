@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from publish.views import view_post
+from CeleryApp.views import home, verify
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('<str:slug>/', view_post, name='view_post'),
+    path('verify/<uuid>/', verify, name='verify'),
+    path('', home, name='home'),
 ]
